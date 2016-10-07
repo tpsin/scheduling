@@ -6,10 +6,14 @@
 
 ## Scheduling Algorithm
 
-### First Come First Serve 
+### First Come First Serve (FCFS)
 
 |   	|   Burst time 	|  Waiting time	|  Turnaround time	|
 |--:	|--:	|--:	|---	|
 |   P1	|   18	|  0 	|  18 	|
 |   P2	|   5	|   18	|  23 	|
 |   P3	|   7	|   32	|  30 	|
+
+### FCFS java algorithm
+
+COMPILE AND EXECUTE JAVA-8 ONLINE at the following url: https://www.tutorialspoint.com/compile_java8_online.php 
