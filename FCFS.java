@@ -5,7 +5,7 @@ public class FCFS {
     public static void main(String args[]) throws Exception {
 
         int n; // Number of processes
-        float AWT = 0; // Avg waiting time
+        float averageWaitTime = 0; // Avg waiting time
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
