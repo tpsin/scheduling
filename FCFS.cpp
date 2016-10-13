@@ -1,47 +1,47 @@
-#include<iostream>
-
-using namespace std;
+#include <iostream>
 
 int main()
 {
-    int n, i, j, avwt=0, avtat=0;
-    cout << "Enter total number of processes:";
-    cin>>n;
+    int processCount, averageWaitingTime = 0, averageTurnaroundTime = 0;
 
-    int bt[n], wt[n], tat[n];
+    std::cout << "Enter total number of processes: ";
+    std::cin >> processCount;
 
-    cout<<"\nEnter Process Burst Time\n";
-    for(i=0;i<n;i++)
+    int burstTime[processCount], waitingTime[processCount], turnaroundTime[processCount];
+
+    std::cout << "\nEnter Process Burst Time\n";
+    for (int i = 0; i < processCount; i++)
     {
-        cout << "P["<<i+1<<"]:";
-        cin >> bt[i];
+        std::cout << "P[" << i + 1 << "]:";
+        std::cin >> burstTime[i];
     }
 
-    wt[0] = 0; //waiting time for first process is 0
+    waitingTime[0] = 0; //waiting time for first process is 0
 
     //calculating waiting time
-    for(i=1;i<n;i++)
+    for(int i = 1; i < processCount; i++)
     {
-        wt[i]=0;
-        for(j=0;j<i;j++)
-            wt[i]+=bt[j];
+        waitingTime[i] = 0;
+        for(int j = 0; j < i; j++) {
+            waitingTime[i] += burstTime[j];
+        }
     }
 
-    cout<<"\nProcess\t\tBurst Time\tWaiting Time\tTurnaround Time";
+    std::cout<<"\nProcess \t Burst Time \t Waiting Time \t Turnaround Time";
 
     //calculating turnaround time
-    for(i = 0 ; i<n; i++)
+    for(int i = 0; i < processCount; i++)
     {
-        tat[i]=bt[i]+wt[i];
-        avwt+=wt[i];
-        avtat+=tat[i];
-        cout<<"\nP["<<i+1<<"]"<<"\t\t"<<bt[i]<<"\t\t"<<wt[i]<<"\t\t"<<tat[i];
+        turnaroundTime[i] = burstTime[i] + waitingTime[i];
+        averageWaitingTime += waitingTime[i];
+        averageTurnaroundTime += turnaroundTime[i];
+        std::cout << "\nP[" << i + 1 << "]" << "\t\t" << burstTime[i] << "\t\t" << waitingTime[i] << "\t\t" << turnaroundTime[i];
     }
 
-    avwt /= i;
-    avtat /= i;
-    cout << "\n\nAverage Waiting Time:"<< avwt;
-    cout << "\nAverage Turnaround Time:"<< avtat <<"\n";
+    averageWaitingTime /= processCount;
+    averageTurnaroundTime /= processCount;
+    std::cout << "\n\nAverage Waiting Time:" << averageWaitingTime;
+    std::cout << "\nAverage Turnaround Time:" << averageTurnaroundTime << "\n";
 
     return 0;
 }
