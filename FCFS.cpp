@@ -1,3 +1,11 @@
+/**
+    Title: First-Come First-Served (FCFS) Scheduling algorithm
+    File-name: FCFS.cpp
+    Purpose: Calculates the Average Waiting Time and the Average Turnaround Time
+    without considering the arrival time.
+
+    @author Antonio Pierro
+*/
 #include <iostream>
 
 int main()
@@ -17,14 +25,11 @@ int main()
     }
 
     waitingTime[0] = 0; //waiting time for first process is 0
-
     //calculating waiting time
     for(int i = 1; i < processCount; i++)
     {
         waitingTime[i] = 0;
-        for(int j = 0; j < i; j++) {
-            waitingTime[i] += burstTime[j];
-        }
+        waitingTime[i] += burstTime[i - 1] + waitingTime[i - 1];
     }
 
     std::cout<<"\nProcess \t Burst Time \t Waiting Time \t Turnaround Time";
