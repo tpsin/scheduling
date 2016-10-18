@@ -4,17 +4,23 @@ public class FCFS {
 
     public static void main(String[] args) throws Exception {
 
-        int n; // Number of processes
+        int processCount; // Number of processes
         double averageWaitTime = 0; // Avg waiting time
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
 
         System.out.println("Enter no of process");
-        n = Integer.parseInt(br.readLine());
+        processCount = Integer.parseInt(br.readLine());
 
-        int[] burstTime = new int[n]; // Burst time
-        int[] waitTime = new int[n]; // Waiting time
-        int[] turnaroundTime = new int[n]; // Turnaround time
-        int[] arrivalTime = new int[n]; // Arrival time
+        int[] burstTime = new int[processCount]; // Burst time
+        int[] waitTime = new int[processCount]; // Waiting time
+        int[] turnaroundTime = new int[processCount]; // Turnaround time
+        int[] arrivalTime = new int[processCount]; // Arrival time
+
+        for (int i = 0; i < processCount; i++)
+        {
+            System.out.print("Enter Process Burst Time of P[" +  (i + 1) + "]: ");
+            burstTime[i] = Integer.parseInt(br.readLine());
+        }
    }
 }
